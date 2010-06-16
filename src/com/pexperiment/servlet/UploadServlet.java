@@ -92,7 +92,8 @@ public class UploadServlet extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
+		request.setAttribute("player", player);
 		String nextJSP = "/handResults.jsp";
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
 		try {
