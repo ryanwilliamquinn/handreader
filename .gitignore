@@ -1,0 +1,10 @@
+.classpath
+.project
+.settings/*
+.tomcatplugin
+WebContent/WEB-INF/lib/*
+WebContent/META-INF/*
+build/*
+work/*
+
+

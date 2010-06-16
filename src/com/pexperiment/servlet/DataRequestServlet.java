@@ -41,7 +41,9 @@ public class DataRequestServlet extends HttpServlet {
 	}
 	
 	private void doProcess(HttpServletRequest request, HttpServletResponse response) throws IOException{
+
 		String name = request.getParameter("pName");
+		
 		Player player = new Player();
 		try {
 			PlayerDAO pd = new PlayerDAO();
@@ -54,5 +56,6 @@ public class DataRequestServlet extends HttpServlet {
 		pw.println("total hands: " + player.getTotalHands() +"<br>");
 		pw.println("vpip hands: " + player.getVpipHands());
 		pw.close();
+
 	}
 }

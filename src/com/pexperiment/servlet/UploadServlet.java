@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
@@ -22,6 +23,8 @@ import org.apache.log4j.Logger;
 import com.pexperiment.db.dao.PlayerDAO;
 import com.pexperiment.loader.Loader;
 import com.pexperiment.model.Player;
+import com.pexperiment.model.Login;
+import com.pexperiment.db.dao.LoginDAO;
 
 /**
  * Servlet implementation class UploadServlet
@@ -74,40 +77,33 @@ public class UploadServlet extends HttpServlet {
 		// Parse the request
 		List <FileItem> items = upload.parseRequest(request);
 		
+		HttpSession session = request.getSession(); // new lines
+		Login login = (Login) session.getAttribute("login"); // new lines
+		player.setPlayerName(login.getPlayerName()); // new lines
+		
 		Iterator iter = items.iterator();
 		while (iter.hasNext()) {
 		    FileItem item = (FileItem) iter.next();
-
-		    if (item.isFormField()) {
-		        processFormField(item);
-		    } else {
-		        processUploadedFile(item);
-		    }
+		    if (item.isFormField()) { processFormField(item);} 
+		    else { processUploadedFile(item); }
 		}
-
 			
 		try {
 			PlayerDAO pd = new PlayerDAO();
 			pd.insert(player);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		} catch (SQLException e) { e.printStackTrace(); }
 
 		request.setAttribute("player", player);
 		String nextJSP = "/handResults.jsp";
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
-		try {
-			dispatcher.forward(request,response);
-		} catch (ServletException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		try { dispatcher.forward(request,response); } 
+		catch (ServletException e) { e.printStackTrace(); } 
+		catch (IOException e) { e.printStackTrace(); }
 	}
 	
 	private void processFormField(FileItem item){
 			log.info(item.getString());
-			player.setPlayerName(item.getString());
+			player.setPlayerName(item.getString());			
 	}
 	
 	private void processUploadedFile(FileItem item){
