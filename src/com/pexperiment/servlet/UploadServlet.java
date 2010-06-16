@@ -72,7 +72,7 @@ public class UploadServlet extends HttpServlet {
 		ServletFileUpload upload = new ServletFileUpload(factory);
 
 		// Parse the request
-		List /* FileItem */ items = upload.parseRequest(request);
+		List <FileItem> items = upload.parseRequest(request);
 		
 		Iterator iter = items.iterator();
 		while (iter.hasNext()) {

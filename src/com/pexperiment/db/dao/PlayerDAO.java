@@ -3,17 +3,11 @@ package com.pexperiment.db.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.apache.log4j.Logger;
-
 import com.pexperiment.db.conn.DBConnector;
 import com.pexperiment.db.conn.DbConnectionManager;
 import com.pexperiment.model.Player;
 
 public class PlayerDAO {
-
-	//initialize logger
-	private static Logger log = Logger.getLogger(PlayerDAO.class);
-	
 	
 	static DBConnector dbConn;
 	
@@ -39,7 +33,7 @@ public class PlayerDAO {
 			
 			if (rs != null) {
 				while (rs.next()){
-					player = new Player(rs.getInt("totalhands"), rs.getInt("vpiphands"), rs.getInt("pfrhands"));
+					player = new Player(rs.getString("playerName"), rs.getInt("totalhands"), rs.getInt("vpiphands"), rs.getInt("pfrhands"));
 				}
 				
 			}

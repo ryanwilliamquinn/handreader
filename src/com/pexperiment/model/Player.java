@@ -22,7 +22,8 @@ public class Player {
 
 	public Player(){};
 	
-	public Player(int hands, int vpipHands, int pfrHands){
+	public Player(String name, int hands, int vpipHands, int pfrHands){
+		this.name = name;
 		this.totalHands = hands;
 		this.vpipHands = vpipHands;
 		this.pfrHands = pfrHands;
