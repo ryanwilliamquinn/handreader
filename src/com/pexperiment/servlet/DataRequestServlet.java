@@ -51,8 +51,8 @@ public class DataRequestServlet extends HttpServlet {
 		}
 		response.setContentType("text/html");
 		PrintWriter pw = new PrintWriter (response.getOutputStream());
-		pw.print("total hands: " + player.getTotalHands() + "\n");
-		pw.print("vpip hands: " + player.getVpipHands());
+		pw.println("total hands: " + player.getTotalHands() +"<br>");
+		pw.println("vpip hands: " + player.getVpipHands());
 		pw.close();
 	}
 }
