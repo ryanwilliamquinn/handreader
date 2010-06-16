@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
 
 public class DbConnectionManager {
 	private static DbConnectionManager instance = null;
-	private static Logger log = Logger.getLogger(DBConnector.class);
+	private static Logger log = Logger.getLogger(DbConnectionManager.class);
 
 	private static String host;
 	private static int port;

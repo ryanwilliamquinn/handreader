@@ -3,7 +3,6 @@ package com.pexperiment.db.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-//import org.apache.log4j.Logger;
 import org.apache.log4j.Logger;
 
 import com.pexperiment.db.conn.DBConnector;

@@ -9,11 +9,10 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
 import com.pexperiment.model.Player;
-import com.pexperiment.servlet.PlayerNameServlet;
 
 public class Loader {
 
-	private static Logger log = Logger.getLogger(PlayerNameServlet.class);
+	private static Logger log = Logger.getLogger(Loader.class);
 	private static Loader instance = null;
 	private Player p;
 	private StringBuffer contents = new StringBuffer();
@@ -32,7 +31,7 @@ public class Loader {
 	
 	public void loadHands(Player player, String fileName){
 		this.p = player;
-		File file = new File("c:/files/" + fileName);
+		File file = new File(fileName);
         try {
             reader = new BufferedReader(new FileReader(file));
             String text = null;

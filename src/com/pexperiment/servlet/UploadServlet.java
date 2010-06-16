@@ -2,7 +2,6 @@ package com.pexperiment.servlet;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.List;
@@ -20,8 +19,6 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.log4j.Logger;
 
-import com.pexperiment.db.conn.DBConnector;
-import com.pexperiment.db.conn.DbConnectionManager;
 import com.pexperiment.db.dao.PlayerDAO;
 import com.pexperiment.loader.Loader;
 import com.pexperiment.model.Player;
@@ -31,7 +28,7 @@ import com.pexperiment.model.Player;
  */
 public class UploadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static Logger log = Logger.getLogger(PlayerNameServlet.class);
+	private static Logger log = Logger.getLogger(UploadServlet.class);
 	private Player player = new Player();
        
     /**
@@ -125,7 +122,7 @@ public class UploadServlet extends HttpServlet {
 		 // Process a file upload
 		    boolean writeToFile = true;
 			if (writeToFile ) {
-		        File uploadedFile = new File("/files/", fileName);
+		        File uploadedFile = new File(fileName);
 		        log.info("created new File object");
 				log.info(uploadedFile.getAbsoluteFile());
 				log.info(uploadedFile.getAbsolutePath());
