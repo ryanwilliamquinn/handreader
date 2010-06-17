@@ -4,17 +4,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="css/pexpStyle.css"/>
+<script type="text/javascript" src="js/pexpScript.js"></script>
 <title>Insert title here</title>
+
 </head>
 <body>
 <h1>Hello</h1>
 <br/>
 
-<title>Insert title here</title>
-</head>
-<body>
 
-<form method="post" action="LoginServlet" >
+
+<form method="post" action="LoginServlet">
 Login: <input type="text" id="playerName" name="playerName" />
 <br></br>
 Password: <input type="text" id="password" name="password" />
@@ -23,7 +24,8 @@ Password: <input type="text" id="password" name="password" />
 </form>
 
 <br></br><br></br>
-<form method="post" action="NewAccountServlet" >
+<a href="#" id="regLink" onClick="showReg()">Click here to create a new account</a>
+<form method="post" action="NewAccountServlet" id="regForm" class="registration">
 New Account
 <br></br>
 Login: <input type="text" id="newPlayerName" name="newPlayerName" />
@@ -32,6 +34,8 @@ Password: <input type="text" id="newPassword" name="newPassword" />
 <br></br>
 <input type="submit" value="submit"/>
 </form>
+
+
 
 </body>
 </html>
