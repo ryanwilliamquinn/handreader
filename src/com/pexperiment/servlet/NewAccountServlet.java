@@ -1,10 +1,7 @@
 package com.pexperiment.servlet;
 
-import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Iterator;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,9 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.log4j.Logger;
+import org.apache.commons.lang.StringUtils;
+
+import com.pexperiment.db.dao.LoginDAO;
 import com.pexperiment.model.Login;
-import com.pexperiment.db.dao.LoginDAO;;
+
 
 public class NewAccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -40,15 +39,17 @@ public class NewAccountServlet extends HttpServlet {
 		Login login = null;
 		HttpSession session = request.getSession(); 
 		
-		String nextJSP;
+		String nextJSP  = "/index.jsp";
 		login = new Login(newPlayerName, newPassword);
 		
 		// need error checks i.e. empty login name
-		try { 
-			ld.insert(login); 
-			session.setAttribute("login", login); 
-			nextJSP = "/uploadHistory.jsp"; } 
-		catch (SQLException e) { /* invalid new account */ nextJSP = "/index.jsp"; e.printStackTrace();  }		
+		if (StringUtils.isNotBlank(newPlayerName) && StringUtils.isNotBlank(newPassword)) {		
+			try { 
+				ld.insert(login); 
+				session.setAttribute("login", login); 
+				nextJSP = "/uploadHistory.jsp"; } 
+			catch (SQLException e) { /* invalid new account */  e.printStackTrace();  }		
+		}
 		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
 		try { dispatcher.forward(request,response); } 

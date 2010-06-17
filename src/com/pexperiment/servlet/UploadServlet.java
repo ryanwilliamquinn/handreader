@@ -77,9 +77,9 @@ public class UploadServlet extends HttpServlet {
 		// Parse the request
 		List <FileItem> items = upload.parseRequest(request);
 		
-		HttpSession session = request.getSession(); // new lines
-		Login login = (Login) session.getAttribute("login"); // new lines
-		player.setPlayerName(login.getPlayerName()); // new lines
+		HttpSession session = request.getSession(); 
+		Login login = (Login) session.getAttribute("login");
+		player.setPlayerName(login.getPlayerName());
 		
 		Iterator iter = items.iterator();
 		while (iter.hasNext()) {
