@@ -10,12 +10,16 @@
 <div class="contentContainer">
 <% com.pexperiment.model.Player player = (com.pexperiment.model.Player) request.getAttribute("player"); %>
 Player name: <%= player.getPlayerName() %>
-<br></br>
+<br/>
 Total hands: <%= player.getTotalHands() %>
-<br></br>
+<br/>
 Vpip hands: <%= player.getVpipHands() %>
-<br></br>
-<br></br>
+<br/>
+Pfr hands:  <%= player.getPfrHands() %>
+<br/>
+
+
+
 <form method="post" action="uploadHistory.jsp">
 <input type="submit" value="back"/>
 </form>

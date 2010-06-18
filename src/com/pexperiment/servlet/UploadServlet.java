@@ -22,9 +22,8 @@ import org.apache.log4j.Logger;
 
 import com.pexperiment.db.dao.PlayerDAO;
 import com.pexperiment.loader.Loader;
-import com.pexperiment.model.Player;
 import com.pexperiment.model.Login;
-import com.pexperiment.db.dao.LoginDAO;
+import com.pexperiment.model.Player;
 
 /**
  * Servlet implementation class UploadServlet
@@ -64,9 +63,10 @@ public class UploadServlet extends HttpServlet {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	private void doProcess(HttpServletRequest request, HttpServletResponse response) throws FileUploadException, IOException {
 		// Check that we have a file upload request
-		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
+		// boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 		
 		// Create a factory for disk-based file items
 		FileItemFactory factory = new DiskFileItemFactory();
@@ -81,9 +81,9 @@ public class UploadServlet extends HttpServlet {
 		Login login = (Login) session.getAttribute("login");
 		player.setPlayerName(login.getPlayerName());
 		
-		Iterator iter = items.iterator();
+		Iterator<FileItem> iter = items.iterator();
 		while (iter.hasNext()) {
-		    FileItem item = (FileItem) iter.next();
+		    FileItem item = iter.next();
 		    if (item.isFormField()) { processFormField(item);} 
 		    else { processUploadedFile(item); }
 		}

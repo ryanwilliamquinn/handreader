@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import com.pexperiment.db.conn.DBConnector;
 import com.pexperiment.db.conn.DbConnectionManager;
+import com.pexperiment.model.Player;
 import com.pexperiment.model.PlayerGameId;
 
 public class PlayerGameIdDAO {
@@ -79,6 +80,15 @@ public class PlayerGameIdDAO {
 			String sql = "DELETE FROM playerGameId WHERE playerName = '" + playerGameId.getPlayerName() + "' and gameId = '" + playerGameId.getGameId() + "'" ;
 			dbConn.execSql(sql);		
 		} finally { if (dbConn != null) dbConn.disconnect(); }
-	}	
+	}
+	
+	public void deleteAll(Player player) throws SQLException {
+		dbConn = DbConnectionManager.newConnection();
+
+		try{
+			String sql = "DELETE FROM playerGameId WHERE playerName = '" + player.getPlayerName() + "'";
+			dbConn.execSql(sql);		
+		} finally { if (dbConn != null) dbConn.disconnect(); }
+	}
 	
 }

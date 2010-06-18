@@ -5,7 +5,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
@@ -84,6 +83,7 @@ public class Loader {
 				 else { continue; } // if this gameid is already in db, then skip processing this hand
 			} catch (SQLException e) { 
 				log.error("error selecting gameid");
+	            e.printStackTrace();
 				continue; 
 			}
 			
