@@ -1,6 +1,5 @@
 package com.pexperiment.model;
 
-import com.pexperiment.loader.Loader;
 
 public class Player {
 	private String name;
@@ -65,24 +64,5 @@ public class Player {
 	
 	public void incrementVpipHands(){
 		vpipHands++;
-	}
-	
-	public static void main(String[] args){
-		Player p = new Player();
-		p.setPlayerName("oatsforxmas");
-		Loader l = Loader.getInstance();
-		l.loadHands(p, "test.txt");
-        System.out.println(p.getPlayerName());
-        System.out.println(p.getTotalHands());
-        System.out.println(p.getVpipHands());
-        System.out.println(p.getPfrHands());
-        float d = (float)p.getVpipHands()/(float)p.getTotalHands();
-        float r = (float)p.getPfrHands()/(float)p.getTotalHands();
-        System.out.println("vpip: %" + d*100);
-        System.out.println("pfr: %" + r*100);
-		
-	}
-	
-	
-	
+	}	
 }

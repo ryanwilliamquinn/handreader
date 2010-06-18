@@ -15,10 +15,7 @@ public class PlayerDAO {
 	}
 	
 	//select, insert, delete, update
-	
-	//i'm having trouble figuring out how to work with LocalDate objects.  Not sure how to get them out of db and into the object, since they are stored in 
-	//a different format in the database than in the LocalDate object...I just left them out of this select method, but I know that isn't the right answer.
-	
+
 	public Player select(String id) throws SQLException{
 		
 		Player player = null;
@@ -68,7 +65,7 @@ public class PlayerDAO {
 		dbConn = DbConnectionManager.newConnection();
 
 		try{
-		String sql = "UPDATE player SET totalHands = '" + player.getTotalHands() + "', vpiphands = '" + player.getVpipHands()+ "' WHERE playername =" + player.getPlayerName(); 
+		String sql = "UPDATE player SET totalHands = '" + player.getTotalHands() + "', vpiphands = '" + player.getVpipHands()+ "' WHERE playername = '" + player.getPlayerName() + "'";
 		
 		dbConn.execSql(sql);
 		

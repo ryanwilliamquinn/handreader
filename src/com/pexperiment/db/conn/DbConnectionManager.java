@@ -61,7 +61,6 @@ public class DbConnectionManager {
 	    System.out.println(props);
 		
 		//initialize variables
-		//tComment: slightly different way of initializing variables. Your way was fine too, just a bit redundant. 
 		host = props.getProperty("host");
 		port = Integer.parseInt(props.getProperty("port"));
 		dbName = props.getProperty("name");
@@ -69,8 +68,7 @@ public class DbConnectionManager {
 		password = props.getProperty("password");
 		
 		//print to console to see that everything makes sense
-		//tComment: consider logging vs doing System.out
-		System.out.println("Here are the connection details: " + host + " " + port + " " + dbName + " " + username + " " + password);
+		log.info("Here are the connection details: " + host + " " + port + " " + dbName + " " + username + " " + password);
 	}
 
 }

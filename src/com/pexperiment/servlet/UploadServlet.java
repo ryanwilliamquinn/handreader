@@ -90,7 +90,11 @@ public class UploadServlet extends HttpServlet {
 			
 		try {
 			PlayerDAO pd = new PlayerDAO();
-			pd.insert(player);
+			if(pd.select(player.getPlayerName()) == null){
+				pd.insert(player);
+			} else {
+				pd.update(player);
+			}
 		} catch (SQLException e) { e.printStackTrace(); }
 
 		request.setAttribute("player", player);
