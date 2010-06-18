@@ -4,11 +4,14 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.SQLException;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
+import com.pexperiment.db.dao.PlayerGameIdDAO;
 import com.pexperiment.model.Player;
+import com.pexperiment.model.PlayerGameId;
 
 public class Loader {
 
@@ -59,7 +62,14 @@ public class Loader {
     	String[] hands = StringUtils.splitByWholeSeparator(contents.toString(),"PokerStars",0 );
         for(String hand : hands){
         	String gameId = StringUtils.substringBetween(hand, "Game #", ":");
-        	log.info(gameId);
+        	PlayerGameId pgi = new PlayerGameId(p.getPlayerName(), gameId);
+        	PlayerGameIdDAO pgiDAO = new PlayerGameIdDAO();
+        	try {
+				pgiDAO.insert(pgi);
+			} catch (SQLException e) {
+				log.error("error inserting game id");
+				e.printStackTrace();
+			}
         	String shortenedContents = StringUtils.substringAfter(hand, "*** HOLE CARDS ***");
         	String action = StringUtils.substringBetween(shortenedContents, p.getPlayerName()+":", "\n");
         	p.incrementTotalHands();

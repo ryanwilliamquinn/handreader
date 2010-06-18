@@ -15,7 +15,7 @@ public class LoginDAO {
 		Login login = null;				
 		dbConn = DbConnectionManager.newConnection();		
 		try{
-			String sql = "SELECT * FROM login WHERE playerName = '" + playerName;			
+			String sql = "SELECT * FROM login WHERE playerName = '" + playerName + "'";			
 			ResultSet rs = dbConn.execSql(sql);			
 			while (rs.next()){
 				login = new Login(rs.getString("playerName"), rs.getString("password"));
@@ -37,7 +37,7 @@ public class LoginDAO {
 	public void update(Login login) throws SQLException{
 		dbConn = DbConnectionManager.newConnection();
 		try{
-			String sql = "UPDATE login SET password = '" +login.getPassword()+"' WHERE playerName = '" +login.getPlayerName()+ "'";					
+			String sql = "UPDATE login SET password = '" +login.getPassword()+"' WHERE playerName = '" +login.getPlayerName() + "'";					
 			dbConn.execSql(sql);		
 		} finally { if (dbConn != null) dbConn.disconnect(); }
 	}
