@@ -5,10 +5,13 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
+import com.pexperiment.db.conn.DBConnector;
+import com.pexperiment.db.conn.DbConnectionManager;
 import com.pexperiment.db.dao.PlayerGameIdDAO;
 import com.pexperiment.model.Player;
 import com.pexperiment.model.PlayerGameId;
@@ -60,16 +63,31 @@ public class Loader {
 	
     private void incrementStats() {
     	String[] hands = StringUtils.splitByWholeSeparator(contents.toString(),"PokerStars",0 );
+    	PlayerGameIdDAO pgiDAO = new PlayerGameIdDAO();
+    	DBConnector dbConn = null;
+    	
+    	try { 
+    		dbConn = DbConnectionManager.newConnection(); 
+    		if (dbConn == null) { 
+    			log.error("error dbConn is null");
+    			return; }
+    	} catch (SQLException e) {     		
+    		log.error("error getting new dbConn");
+    		return; }
+    	
         for(String hand : hands){
         	String gameId = StringUtils.substringBetween(hand, "Game #", ":");
         	PlayerGameId pgi = new PlayerGameId(p.getPlayerName(), gameId);
-        	PlayerGameIdDAO pgiDAO = new PlayerGameIdDAO();
+        	       	
         	try {
-				pgiDAO.insert(pgi);
-			} catch (SQLException e) {
-				log.error("error inserting game id");
+				 if (pgiDAO.select(dbConn, p.getPlayerName(), gameId) == null) { pgiDAO.insert(dbConn, pgi); }
+				 else { continue; } // if this gameid is already in db, then skip processing this hand
+			} catch (SQLException e) { 
+				log.error("error selecting gameid");
 				e.printStackTrace();
+				continue; 
 			}
+			
         	String shortenedContents = StringUtils.substringAfter(hand, "*** HOLE CARDS ***");
         	String action = StringUtils.substringBetween(shortenedContents, p.getPlayerName()+":", "\n");
         	p.incrementTotalHands();
@@ -79,9 +97,16 @@ public class Loader {
         			p.incrementPfrHands();
         		}
         	}
-        }
+        }     	
+                
         log.info(p.getTotalHands());
         log.info(p.getVpipHands());
         log.info(p.getPfrHands());
+        
+        try { 
+        	if (dbConn != null) dbConn.disconnect(); 
+		} catch (SQLException e) {     		
+			log.error("error disconnecting dbConn");
+		}       
     }
 }
