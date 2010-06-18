@@ -18,7 +18,6 @@
 			document.getElementById("uploadError").style.display='inline-block';
 			return false;
 		} else {
-			console.log("should be submitting");
 			document.forms["uploadForm"].submit();
 		}
 	}
