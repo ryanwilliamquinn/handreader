@@ -3,11 +3,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
+	<link rel="stylesheet" type="text/css" href="css/pexpStyle.css"/>
 <title>Insert title here</title>
 </head>
 <body>
-
+<div class="contentContainer">
 <% com.pexperiment.model.Player player = (com.pexperiment.model.Player) request.getAttribute("player"); %>
 Player name: <%= player.getPlayerName() %>
 <br></br>
@@ -19,5 +19,6 @@ Vpip hands: <%= player.getVpipHands() %>
 <form method="post" action="uploadHistory.jsp">
 <input type="submit" value="back"/>
 </form>
+</div>
 </body>
 </html>

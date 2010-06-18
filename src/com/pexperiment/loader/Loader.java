@@ -58,6 +58,8 @@ public class Loader {
     private void incrementStats() {
     	String[] hands = StringUtils.splitByWholeSeparator(contents.toString(),"PokerStars",0 );
         for(String hand : hands){
+        	String gameId = StringUtils.substringBetween(hand, "Game #", ":");
+        	log.info(gameId);
         	String shortenedContents = StringUtils.substringAfter(hand, "*** HOLE CARDS ***");
         	String action = StringUtils.substringBetween(shortenedContents, p.getPlayerName()+":", "\n");
         	p.incrementTotalHands();

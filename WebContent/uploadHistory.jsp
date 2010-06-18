@@ -5,9 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<link rel="stylesheet" type="text/css" href="css/pexpStyle.css"/>
 <title>Insert title here</title>
 </head>
 <body>
+<div class="contentContainer">
 <% com.pexperiment.model.Login login = (com.pexperiment.model.Login) session.getAttribute("login"); %>
 <h1>Hello <%= login.getPlayerName() %> </h1>
 <br/>
@@ -22,5 +24,6 @@
 <form method="post" action="LogoutServlet">
 <input type="submit" value="logout"/>
 </form>
+</div>
 </body>
 </html>
