@@ -84,7 +84,7 @@ public class PlayerDAO {
 		dbConn = DbConnectionManager.newConnection();
 
 		try{
-		String sql = "DELETE FROM player WHERE playername = " + player.getPlayerName();
+		String sql = "DELETE FROM player WHERE playername = '" + player.getPlayerName() + "'";
 		
 		dbConn.execSql(sql);
 		

@@ -46,7 +46,7 @@ public class PlayerGameIdDAO {
 		dbConn = DbConnectionManager.newConnection();
 
 		try{
-			String sql = "DELETE FROM playerGameId WHERE playerName = " + playerGameId.getPlayerName();
+			String sql = "DELETE FROM playerGameId WHERE playerName = '" + playerGameId.getPlayerName() + "' and gameId = '" + playerGameId.getGameId() + "'" ;
 			dbConn.execSql(sql);		
 		} finally { if (dbConn != null) dbConn.disconnect(); }
 	}	

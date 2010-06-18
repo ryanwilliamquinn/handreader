@@ -11,11 +11,11 @@ public class LoginDAO {
 	
 	static DBConnector dbConn;
 	
-	public Login select(String playerName, String password) throws SQLException{		
+	public Login select(String playerName) throws SQLException{		
 		Login login = null;				
 		dbConn = DbConnectionManager.newConnection();		
 		try{
-			String sql = "SELECT * FROM login WHERE playerName = '" + playerName + "' and password = '" + password + ";";			
+			String sql = "SELECT * FROM login WHERE playerName = '" + playerName;			
 			ResultSet rs = dbConn.execSql(sql);			
 			while (rs.next()){
 				login = new Login(rs.getString("playerName"), rs.getString("password"));
@@ -46,7 +46,7 @@ public class LoginDAO {
 		dbConn = DbConnectionManager.newConnection();
 
 		try{
-			String sql = "DELETE FROM login WHERE playerName = " + login.getPlayerName();
+			String sql = "DELETE FROM login WHERE playerName = '" + login.getPlayerName() + "'";
 			dbConn.execSql(sql);		
 		} finally { if (dbConn != null) dbConn.disconnect(); }
 	}	
