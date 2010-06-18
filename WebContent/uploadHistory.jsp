@@ -15,7 +15,7 @@
 <br/>
 <form enctype="multipart/form-data" method="post" action="uploadServlet" >
 <hr/>
-<input type="file" name="mptest"/>
+<input type="file" name="mptest" value=""/>
 <hr/>
 <input type="submit" value="upload"/>
 </form>

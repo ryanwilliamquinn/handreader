@@ -5,13 +5,13 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
 import com.pexperiment.db.conn.DBConnector;
 import com.pexperiment.db.conn.DbConnectionManager;
+import com.pexperiment.db.dao.PlayerDAO;
 import com.pexperiment.db.dao.PlayerGameIdDAO;
 import com.pexperiment.model.Player;
 import com.pexperiment.model.PlayerGameId;
@@ -20,12 +20,11 @@ public class Loader {
 
 	private static Logger log = Logger.getLogger(Loader.class);
 	private static Loader instance = null;
-	private Player p;
+	private Player player;
 	private StringBuffer contents = new StringBuffer();
     private BufferedReader reader = null;
 
-	
-	public static Loader getInstance(){
+	public static Loader getInstance(){ // what calls this function?
 		if (instance != null) {
 			return instance;
 		} else {
@@ -34,9 +33,8 @@ public class Loader {
 		}
 	}
 	
-	
 	public void loadHands(Player player, String fileName){
-		this.p = player;
+		this.player = player;
 		File file = new File(fileName);
         try {
             reader = new BufferedReader(new FileReader(file));
@@ -72,40 +70,38 @@ public class Loader {
     			log.error("error dbConn is null");
     			return; }
     	} catch (SQLException e) {     		
-    		log.error("error getting new dbConn");
+    		log.error("error getting new dbConn"); log.error(e); e.printStackTrace();
     		return; }
     	
         for(String hand : hands){
         	String gameId = StringUtils.substringBetween(hand, "Game #", ":");
-        	PlayerGameId pgi = new PlayerGameId(p.getPlayerName(), gameId);
+        	PlayerGameId pgi = new PlayerGameId(player.getPlayerName(), gameId);
         	       	
         	try {
-				 if (pgiDAO.select(dbConn, p.getPlayerName(), gameId) == null) { pgiDAO.insert(dbConn, pgi); }
+				 if (pgiDAO.select(dbConn, player.getPlayerName(), gameId) == null) { pgiDAO.insert(dbConn, pgi); }
 				 else { continue; } // if this gameid is already in db, then skip processing this hand
 			} catch (SQLException e) { 
-				log.error("error selecting gameid");
+				log.error("error selecting gameid"); log.error(e); e.printStackTrace();
 				continue; 
 			}
 			
         	String shortenedContents = StringUtils.substringAfter(hand, "*** HOLE CARDS ***");
-        	String action = StringUtils.substringBetween(shortenedContents, p.getPlayerName()+":", "\n");
-        	p.incrementTotalHands();
+        	String action = StringUtils.substringBetween(shortenedContents, player.getPlayerName()+":", "\n");
+        	player.incrementTotalHands();
         	if(!StringUtils.contains(action, "folds") && !StringUtils.contains(action, "doesn't show hand")){
-        		p.incrementVpipHands();
+        		player.incrementVpipHands();
         		if(StringUtils.contains(action, "raise")){
-        			p.incrementPfrHands();
+        			player.incrementPfrHands();
         		}
         	}
-        }     	
-                
-        log.info(p.getTotalHands());
-        log.info(p.getVpipHands());
-        log.info(p.getPfrHands());
+        }
         
         try { 
+        	PlayerDAO pd = new PlayerDAO();
+        	pd.update(player);
         	if (dbConn != null) dbConn.disconnect(); 
 		} catch (SQLException e) {     		
-			log.error("error disconnecting dbConn");
+			log.error(e); e.printStackTrace();
 		}       
     }
 }

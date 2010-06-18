@@ -26,25 +26,14 @@ import com.pexperiment.model.Player;
 import com.pexperiment.model.Login;
 import com.pexperiment.db.dao.LoginDAO;
 
-/**
- * Servlet implementation class UploadServlet
- */
 public class UploadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static Logger log = Logger.getLogger(UploadServlet.class);
-	private Player player = new Player();
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public UploadServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			doProcess(request, response);
@@ -53,9 +42,6 @@ public class UploadServlet extends HttpServlet {
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			doProcess(request, response);
@@ -65,52 +51,60 @@ public class UploadServlet extends HttpServlet {
 	}
 
 	private void doProcess(HttpServletRequest request, HttpServletResponse response) throws FileUploadException, IOException {
+		HttpSession session = request.getSession(); 
+		Login login = (Login) session.getAttribute("login");
+		String playerName = login.getPlayerName();
+				
 		// Check that we have a file upload request
-		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
+		// boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 		
 		// Create a factory for disk-based file items
 		FileItemFactory factory = new DiskFileItemFactory();
 
 		// Create a new file upload handler
 		ServletFileUpload upload = new ServletFileUpload(factory);
-
+		
+		// Get player object
+		String nextJSP = "/handResults.jsp";	
+		PlayerDAO pd = null;
+		Player player = null;
+		try {	
+			pd = new PlayerDAO();
+			player = pd.select(playerName);
+			if (player == null) {
+				pd.insert(new Player(playerName));
+				player = pd.select(playerName);
+			}			
+		} catch (SQLException e) { 
+			log.error(e); e.printStackTrace(); 
+			nextJSP = "/uploadHistory.jsp";
+		}		
+		
 		// Parse the request
-		List <FileItem> items = upload.parseRequest(request);
-		
-		HttpSession session = request.getSession(); 
-		Login login = (Login) session.getAttribute("login");
-		player.setPlayerName(login.getPlayerName());
-		
+		List<FileItem> items = upload.parseRequest(request);		
 		Iterator iter = items.iterator();
-		while (iter.hasNext()) {
-		    FileItem item = (FileItem) iter.next();
-		    if (item.isFormField()) { processFormField(item);} 
-		    else { processUploadedFile(item); }
+		while (iter.hasNext()) { // even though we have a single input field for files, I think this is getting multiple past files
+		    FileItem item = (FileItem) iter.next();		    
+		    processUploadedFile(item, player); 
 		}
-			
-		try {
-			PlayerDAO pd = new PlayerDAO();
-			if(pd.select(player.getPlayerName()) == null){
-				pd.insert(player);
-			} else {
-				pd.update(player);
-			}
-		} catch (SQLException e) { e.printStackTrace(); }
-
-		request.setAttribute("player", player);
-		String nextJSP = "/handResults.jsp";
+		
+		// dispatch jsp
+		try { request.setAttribute("player", pd.select(playerName)); }
+		catch (SQLException e) { 
+			log.error(e); e.printStackTrace();
+			nextJSP = "/uploadHistory.jsp"; }
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
 		try { dispatcher.forward(request,response); } 
 		catch (ServletException e) { e.printStackTrace(); } 
 		catch (IOException e) { e.printStackTrace(); }
 	}
 	
-	private void processFormField(FileItem item){
-			log.info(item.getString());
-			player.setPlayerName(item.getString());			
+	
+	private void processFormField(FileItem item){ // unused function
+			log.info(item.getString());		
 	}
 	
-	private void processUploadedFile(FileItem item){
+	private void processUploadedFile(FileItem item, Player player){
 		// Process a file upload
 		if (!item.isFormField()) {
 		    String fieldName = item.getFieldName();

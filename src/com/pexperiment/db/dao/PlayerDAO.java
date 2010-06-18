@@ -24,7 +24,7 @@ public class PlayerDAO {
 		dbConn = DbConnectionManager.newConnection();
 		
 		try{
-			String sql = "SELECT * FROM player WHERE playername = '" + id + "'";
+			String sql = "SELECT * FROM player WHERE playerName = '" + id + "'";
 			
 			ResultSet rs = dbConn.execSql(sql);
 			
