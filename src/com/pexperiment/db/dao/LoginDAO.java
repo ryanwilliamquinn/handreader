@@ -11,11 +11,11 @@ public class LoginDAO {
 	
 	static DBConnector dbConn;
 	
-	public Login select(String playerName) throws SQLException{		
+	public Login select(String playerName, String password) throws SQLException{		
 		Login login = null;				
 		dbConn = DbConnectionManager.newConnection();		
 		try{
-			String sql = "SELECT * FROM login WHERE playername = '" + playerName + "'";			
+			String sql = "SELECT * FROM login WHERE playerName = '" + playerName + "' and password = '" + password + ";";			
 			ResultSet rs = dbConn.execSql(sql);			
 			while (rs.next()){
 				login = new Login(rs.getString("playerName"), rs.getString("password"));

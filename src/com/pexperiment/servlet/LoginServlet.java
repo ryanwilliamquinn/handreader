@@ -42,7 +42,7 @@ public class LoginServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession(); 
 		
-		try { login = ld.select(playerName); } 
+		try { login = ld.select(playerName, password); } 
 		catch (SQLException e) { /* invalid playerName */ e.printStackTrace(); }
 		
 		if (login == null){ /* invalid playerName */ nextJSP = "/index.jsp"; }
