@@ -84,7 +84,6 @@ public class Loader {
 				 else { continue; } // if this gameid is already in db, then skip processing this hand
 			} catch (SQLException e) { 
 				log.error("error selecting gameid");
-				e.printStackTrace();
 				continue; 
 			}
 			
