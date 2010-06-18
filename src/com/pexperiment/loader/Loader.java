@@ -68,7 +68,6 @@ public class Loader {
 				pgiDAO.insert(pgi);
 			} catch (SQLException e) {
 				log.error("error inserting game id");
-				e.printStackTrace();
 			}
         	String shortenedContents = StringUtils.substringAfter(hand, "*** HOLE CARDS ***");
         	String action = StringUtils.substringBetween(shortenedContents, p.getPlayerName()+":", "\n");

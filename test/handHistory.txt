@@ -1,0 +1,181 @@
+PokerStars Game #42137059154:  Hold'em No Limit ($0.10/$0.25 USD) - 2010/04/03 12:16:15 PT [2010/04/03 15:16:15 ET]
+Table 'Callisto VII' 6-max Seat #3 is the button
+Seat 1: Palermo9+10 ($12.70 in chips) 
+Seat 2: marcoNL01 ($36.85 in chips) 
+Seat 3: AHD270 ($42.40 in chips) 
+Seat 4: AceO_J ($25.10 in chips) 
+Seat 5: oatsforxmas ($25 in chips) 
+AceO_J: posts small blind $0.10
+oatsforxmas: posts big blind $0.25
+AmypKA: sits out 
+*** HOLE CARDS ***
+Dealt to oatsforxmas [Js 3d]
+Palermo9+10: raises $0.50 to $0.75
+marcoNL01: raises $1 to $1.75
+AHD270: folds 
+AceO_J: folds 
+oatsforxmas: folds 
+Palermo9+10: calls $1
+*** FLOP *** [6c 2c 2d]
+Palermo9+10: bets $1.25
+marcoNL01: calls $1.25
+*** TURN *** [6c 2c 2d] [3h]
+Palermo9+10: bets $1.75
+marcoNL01: raises $32.10 to $33.85 and is all-in
+Palermo9+10: calls $7.95 and is all-in
+Uncalled bet ($24.15) returned to marcoNL01
+*** RIVER *** [6c 2c 2d 3h] [Th]
+*** SHOW DOWN ***
+Palermo9+10: shows [6h Ah] (two pair, Sixes and Deuces)
+marcoNL01: shows [Qs Qc] (two pair, Queens and Deuces)
+marcoNL01 collected $24.50 from pot
+*** SUMMARY ***
+Total pot $25.75 | Rake $1.25 
+Board [6c 2c 2d 3h Th]
+Seat 1: Palermo9+10 showed [6h Ah] and lost with two pair, Sixes and Deuces
+Seat 2: marcoNL01 showed [Qs Qc] and won ($24.50) with two pair, Queens and Deuces
+Seat 3: AHD270 (button) folded before Flop (didn't bet)
+Seat 4: AceO_J (small blind) folded before Flop
+Seat 5: oatsforxmas (big blind) folded before Flop
+
+
+
+
+
+PokerStars Game #42137096024:  Hold'em No Limit ($0.10/$0.25 USD) - 2010/04/03 12:16:59 PT [2010/04/03 15:16:59 ET]
+Table 'Callisto VII' 6-max Seat #4 is the button
+Seat 2: marcoNL01 ($48.65 in chips) 
+Seat 3: AHD270 ($42.40 in chips) 
+Seat 4: AceO_J ($25 in chips) 
+Seat 5: oatsforxmas ($25 in chips) 
+Seat 6: AmypKA ($25 in chips) 
+oatsforxmas: posts small blind $0.10
+AmypKA: posts big blind $0.25
+*** HOLE CARDS ***
+Dealt to oatsforxmas [6s Jd]
+marcoNL01: calls $0.25
+AHD270: folds 
+AceO_J: folds 
+oatsforxmas: folds 
+AmypKA: checks 
+*** FLOP *** [2h 3c 6c]
+AmypKA: bets $0.50
+marcoNL01: folds 
+Uncalled bet ($0.50) returned to AmypKA
+AmypKA collected $0.60 from pot
+AmypKA: doesn't show hand 
+*** SUMMARY ***
+Total pot $0.60 | Rake $0 
+Board [2h 3c 6c]
+Seat 2: marcoNL01 folded on the Flop
+Seat 3: AHD270 folded before Flop (didn't bet)
+Seat 4: AceO_J (button) folded before Flop (didn't bet)
+Seat 5: oatsforxmas (small blind) folded before Flop
+Seat 6: AmypKA (big blind) collected ($0.60)
+
+
+
+
+
+PokerStars Game #42137136375:  Hold'em No Limit ($0.10/$0.25 USD) - 2010/04/03 12:17:46 PT [2010/04/03 15:17:46 ET]
+Table 'Callisto VII' 6-max Seat #5 is the button
+Seat 1: Palermo9+10 ($25 in chips) 
+Seat 2: marcoNL01 ($48.40 in chips) 
+Seat 3: AHD270 ($42.40 in chips) 
+Seat 4: AceO_J ($25 in chips) 
+Seat 5: oatsforxmas ($25 in chips) 
+Seat 6: AmypKA ($25.35 in chips) 
+AmypKA: posts small blind $0.10
+Palermo9+10: posts big blind $0.25
+*** HOLE CARDS ***
+Dealt to oatsforxmas [Td 4h]
+marcoNL01: folds 
+marcoNL01 leaves the table
+AHD270: folds 
+AceO_J: folds 
+oatsforxmas: folds 
+AmypKA: folds 
+Uncalled bet ($0.15) returned to Palermo9+10
+Palermo9+10 collected $0.20 from pot
+*** SUMMARY ***
+Total pot $0.20 | Rake $0 
+Seat 1: Palermo9+10 (big blind) collected ($0.20)
+Seat 2: marcoNL01 folded before Flop (didn't bet)
+Seat 3: AHD270 folded before Flop (didn't bet)
+Seat 4: AceO_J folded before Flop (didn't bet)
+Seat 5: oatsforxmas (button) folded before Flop (didn't bet)
+Seat 6: AmypKA (small blind) folded before Flop
+
+
+
+
+
+PokerStars Game #42138699434:  Hold'em No Limit ($0.10/$0.25 USD) - 2010/04/03 12:48:33 PT [2010/04/03 15:48:33 ET]
+Table 'Tsai III' 6-max Seat #4 is the button
+Seat 1: Cincy7493 ($4.40 in chips) 
+Seat 2: Macapoker ($16.65 in chips) 
+Seat 3: pedro.dg ($5.65 in chips) 
+Seat 4: NeoLove ($27.15 in chips) 
+Seat 5: oatsforxmas ($25 in chips) 
+Seat 6: jailer4u2 ($5.35 in chips) 
+oatsforxmas: posts small blind $0.10
+jailer4u2: posts big blind $0.25
+*** HOLE CARDS ***
+Dealt to oatsforxmas [2c 2d]
+Cincy7493: folds 
+Macapoker: raises $0.25 to $0.50
+pedro.dg: folds 
+NeoLove: folds 
+oatsforxmas: calls $0.40
+jailer4u2: calls $0.25
+*** FLOP *** [Td 5h Ad]
+oatsforxmas: checks 
+jailer4u2: checks 
+Macapoker: bets $0.50
+oatsforxmas: folds 
+jailer4u2: folds 
+Uncalled bet ($0.50) returned to Macapoker
+Macapoker collected $1.45 from pot
+*** SUMMARY ***
+Total pot $1.50 | Rake $0.05 
+Board [Td 5h Ad]
+Seat 1: Cincy7493 folded before Flop (didn't bet)
+Seat 2: Macapoker collected ($1.45)
+Seat 3: pedro.dg folded before Flop (didn't bet)
+Seat 4: NeoLove (button) folded before Flop (didn't bet)
+Seat 5: oatsforxmas (small blind) folded on the Flop
+Seat 6: jailer4u2 (big blind) folded on the Flop
+
+
+
+
+
+PokerStars Game #42137493500:  Hold'em No Limit ($0.10/$0.25 USD) - 2010/04/03 12:24:48 PT [2010/04/03 15:24:48 ET]
+Table 'Palamedes III' 6-max Seat #2 is the button
+Seat 1: ravi777 ($25 in chips) 
+Seat 2: Blake|42 ($39.30 in chips) 
+Seat 3: ALCU01 ($25.10 in chips) 
+Seat 4: Stropy ($25.25 in chips) 
+Seat 5: karowlinger5 ($23.75 in chips) 
+Seat 6: oatsforxmas ($25 in chips) 
+ALCU01: posts small blind $0.10
+Stropy: posts big blind $0.25
+*** HOLE CARDS ***
+Dealt to oatsforxmas [Qs Kc]
+karowlinger5: folds 
+oatsforxmas: raises $0.75 to $1
+ravi777: folds 
+Blake|42: folds 
+ALCU01: folds 
+Stropy: folds 
+Uncalled bet ($0.75) returned to oatsforxmas
+oatsforxmas collected $0.60 from pot
+oatsforxmas: doesn't show hand 
+*** SUMMARY ***
+Total pot $0.60 | Rake $0 
+Seat 1: ravi777 folded before Flop (didn't bet)
+Seat 2: Blake|42 (button) folded before Flop (didn't bet)
+Seat 3: ALCU01 (small blind) folded before Flop
+Seat 4: Stropy (big blind) folded before Flop
+Seat 5: karowlinger5 folded before Flop (didn't bet)
+Seat 6: oatsforxmas collected ($0.60)
