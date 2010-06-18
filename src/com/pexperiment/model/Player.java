@@ -3,9 +3,9 @@ package com.pexperiment.model;
 
 public class Player {
 	private String name;
-	private int totalHands;
-	private int vpipHands;
-	private int pfrHands;
+	private int totalHands=0;
+	private int vpipHands=0;
+	private int pfrHands=0;
 	
 	public int getPfrHands() {
 		return pfrHands;

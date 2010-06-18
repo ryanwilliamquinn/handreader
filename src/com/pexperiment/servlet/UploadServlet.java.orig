@@ -80,12 +80,20 @@ public class UploadServlet extends HttpServlet {
 			nextJSP = "/uploadHistory.jsp";
 		}		
 		
+<<<<<<< HEAD
+		Iterator<FileItem> iter = items.iterator();
+		while (iter.hasNext()) {
+		    FileItem item = iter.next();
+		    if (item.isFormField()) { processFormField(item);} 
+		    else { processUploadedFile(item); }
+=======
 		// Parse the request
 		List<FileItem> items = upload.parseRequest(request);		
-		Iterator<FileItem> iter = items.iterator();
+		Iterator iter = items.iterator();
 		while (iter.hasNext()) { // even though we have a single input field for files, I think this is getting multiple past files
 		    FileItem item = (FileItem) iter.next();		    
 		    processUploadedFile(item, player); 
+>>>>>>> 73e2038c7ead26b1dfd866cc36d6e3d1b40c14a2
 		}
 		
 		// dispatch jsp

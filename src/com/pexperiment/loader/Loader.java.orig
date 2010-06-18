@@ -81,8 +81,12 @@ public class Loader {
 				 if (pgiDAO.select(dbConn, player.getPlayerName(), gameId) == null) { pgiDAO.insert(dbConn, pgi); }
 				 else { continue; } // if this gameid is already in db, then skip processing this hand
 			} catch (SQLException e) { 
-				log.error("error selecting gameid"); log.error(e); e.printStackTrace();
+<<<<<<< HEAD
+				log.error("error selecting gameid");
 	            e.printStackTrace();
+=======
+				log.error("error selecting gameid"); log.error(e); e.printStackTrace();
+>>>>>>> 73e2038c7ead26b1dfd866cc36d6e3d1b40c14a2
 				continue; 
 			}
 			
