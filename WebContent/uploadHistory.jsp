@@ -6,18 +6,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<link rel="stylesheet" type="text/css" href="css/pexpStyle.css"/>
-<title>Insert title here</title>
+	<script type="text/javascript" src="js/pexpScript.js"></script>
+<title>Hand History Reader</title>
 </head>
 <body>
 <div class="contentContainer">
 <% com.pexperiment.model.Login login = (com.pexperiment.model.Login) session.getAttribute("login"); %>
 <h1>Hello <%= login.getPlayerName() %> </h1>
 <br/>
-<form enctype="multipart/form-data" method="post" action="uploadServlet" >
+<form enctype="multipart/form-data" method="post" action="uploadServlet" name="uploadForm" id="uploadForm" >
 <hr/>
-<input type="file" name="mptest" value=""/>
+<input type="file" name="fileUp" id="fileUp" value=""/>
+<span class="error" id="uploadError" name="uploadError">You must select a file before attempting to upload</span>
 <hr/>
-<input type="submit" value="upload"/>
+<input type="button" onclick="verifyUpload();" value="upload"/>
 </form>
 <br></br>
 <br></br>
