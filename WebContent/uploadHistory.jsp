@@ -21,11 +21,17 @@
 <hr/>
 <input type="button" onclick="verifyUpload();" value="upload"/>
 </form>
+
+<br></br>
+<form method="post" action="ClearDatabaseServlet">
+<input type="submit" value="clear database"/>
+</form>
 <br></br>
 <br></br>
 <form method="post" action="LogoutServlet">
 <input type="submit" value="logout"/>
 </form>
+
 </div>
 </body>
 </html>

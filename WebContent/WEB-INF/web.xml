@@ -68,5 +68,15 @@
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/LogoutServlet</url-pattern>
   </servlet-mapping> 
+  <servlet>
+    <description></description>
+    <display-name>ClearDatabaseServlet</display-name>
+    <servlet-name>ClearDatabaseServlet</servlet-name>
+    <servlet-class>com.pexperiment.servlet.ClearDatabaseServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ClearDatabaseServlet</servlet-name>
+    <url-pattern>/ClearDatabaseServlet</url-pattern>
+  </servlet-mapping>  
   
 </web-app>

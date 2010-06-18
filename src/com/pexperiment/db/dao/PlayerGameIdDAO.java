@@ -82,11 +82,11 @@ public class PlayerGameIdDAO {
 		} finally { if (dbConn != null) dbConn.disconnect(); }
 	}
 	
-	public void deleteAll(Player player) throws SQLException {
+	public void deleteAll() throws SQLException {
 		dbConn = DbConnectionManager.newConnection();
 
 		try{
-			String sql = "DELETE FROM playerGameId WHERE playerName = '" + player.getPlayerName() + "'";
+			String sql = "DELETE FROM playerGameId;";
 			dbConn.execSql(sql);		
 		} finally { if (dbConn != null) dbConn.disconnect(); }
 	}

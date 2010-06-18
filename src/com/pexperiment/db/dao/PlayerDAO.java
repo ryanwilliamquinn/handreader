@@ -89,5 +89,19 @@ public class PlayerDAO {
 			if (dbConn != null) dbConn.disconnect();
 		}
 	}
+	
+	public void deleteAll() throws SQLException{
+		dbConn = DbConnectionManager.newConnection();
+
+		try{
+		String sql = "DELETE FROM player;";
+		
+		dbConn.execSql(sql);
+		
+		} finally {
+			if (dbConn != null) dbConn.disconnect();
+		}		
+		
+	}
 
 }
