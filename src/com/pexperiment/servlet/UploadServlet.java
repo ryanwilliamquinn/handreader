@@ -18,6 +18,7 @@ import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
 import com.pexperiment.db.dao.PlayerDAO;
@@ -83,9 +84,12 @@ public class UploadServlet extends HttpServlet {
 		// Parse the request
 		List<FileItem> items = upload.parseRequest(request);		
 		Iterator<FileItem> iter = items.iterator();
-		while (iter.hasNext()) { // even though we have a single input field for files, I think this is getting multiple past files
-		    FileItem item = (FileItem) iter.next();		    
-		    processUploadedFile(item, player); 
+		int size=items.size();
+		for(int i=0;i<size;i++){
+			while (items.get(i).getSize() > 0 && iter.hasNext()) { // even though we have a single input field for files, I think this is getting multiple past files
+			    FileItem item = (FileItem) iter.next();		    
+			    processUploadedFile(item, player);
+			}
 		}
 		
 		// dispatch jsp
