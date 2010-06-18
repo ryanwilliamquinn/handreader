@@ -1,1 +1,10 @@
+body {background-color:#eee;margin:0;padding:0;}
+h1 {font-size:1.5em;margin:0;}
+h2 {margin-bottom:10px; font-size:1.25em;}
+.contentContainer {display:block; width:800px; height:2000px; background-color:#ddd;margin:0 auto; color:#444; padding:10px;}
 .registration {display:none; margin-top:20px;}
+a:link, a:visited, a:hover, a:active {color:#444;}
+.forms {display:block; width:350px;}
+.forms input, .forms label {display:block; margin:5px 0;}
+.ghost {display:none;}
+.mtb10 {margin:10px 0;}
