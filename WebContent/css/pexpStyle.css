@@ -8,3 +8,4 @@ a:link, a:visited, a:hover, a:active {color:#444;}
 .forms input, .forms label {display:block; margin:5px 0;}
 .ghost {display:none;}
 .mtb10 {margin:10px 0;}
+.error {display:none; color:red;}

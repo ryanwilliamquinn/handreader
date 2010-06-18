@@ -11,3 +11,14 @@
 		document.getElementById("loginForm").style.display= 'block';
 		document.getElementById("regLink").style.display= 'block';
 	}
+	
+	function verifyUpload(){
+		var docName = document.getElementById("fileUp");
+		if(docName.value == null || docName.value == "") {
+			document.getElementById("uploadError").style.display='inline-block';
+			return false;
+		} else {
+			console.log("should be submitting");
+			document.forms["uploadForm"].submit();
+		}
+	}
