@@ -16,11 +16,11 @@ import com.pexperiment.db.dao.PlayerDAO;
 import com.pexperiment.db.dao.PlayerGameIdDAO;
 import com.pexperiment.model.Login;
 
-public class ClearDatabaseServlet extends HttpServlet {
+public class DeletePlayerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static Logger log = Logger.getLogger(ClearDatabaseServlet.class);
        
-    public ClearDatabaseServlet() {
+    public DeletePlayerServlet() {
         super();
     }
 
@@ -34,11 +34,15 @@ public class ClearDatabaseServlet extends HttpServlet {
 	
 	private void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
+		HttpSession session = request.getSession(); 
+		Login login = (Login) session.getAttribute("login");
+		String playerName = login.getPlayerName();
+		
 		try{
 			PlayerDAO pd = new PlayerDAO();
 			PlayerGameIdDAO pgid = new PlayerGameIdDAO();
-			pd.deleteAll();
-			pgid.deleteAll();
+			pd.delete(playerName);
+			pgid.delete(playerName);
 		} catch (SQLException e) { 
 			log.error(e); e.printStackTrace(); 
 		}	

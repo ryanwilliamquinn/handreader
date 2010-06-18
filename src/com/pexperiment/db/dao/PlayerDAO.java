@@ -75,13 +75,13 @@ public class PlayerDAO {
 	}
 		
 
-	public void delete(Player player) throws SQLException{
+	public void delete(String playerName) throws SQLException{
 		
 		//new database connection
 		dbConn = DbConnectionManager.newConnection();
 
 		try{
-		String sql = "DELETE FROM player WHERE playername = '" + player.getPlayerName() + "'";
+		String sql = "DELETE FROM player WHERE playername = '" + playerName + "'";
 		
 		dbConn.execSql(sql);
 		

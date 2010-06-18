@@ -78,5 +78,16 @@
     <servlet-name>ClearDatabaseServlet</servlet-name>
     <url-pattern>/ClearDatabaseServlet</url-pattern>
   </servlet-mapping>  
+    <servlet>
+    <description></description>
+    <display-name>DeletePlayerServlet</display-name>
+    <servlet-name>DeletePlayerServlet</servlet-name>
+    <servlet-class>com.pexperiment.servlet.DeletePlayerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeletePlayerServlet</servlet-name>
+    <url-pattern>/DeletePlayerServlet</url-pattern>
+  </servlet-mapping> 
+  
   
 </web-app>

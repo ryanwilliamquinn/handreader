@@ -22,10 +22,15 @@
 </form>
 
 <br></br>
+<form method="post" action="DeletePlayerServlet">
+<input type="submit" value="delete current player"/>
+</form>
+
+<br></br>
 <form method="post" action="ClearDatabaseServlet">
 <input type="submit" value="clear database"/>
 </form>
-<br></br>
+
 <br></br>
 <form method="post" action="LogoutServlet">
 <input type="submit" value="logout"/>
