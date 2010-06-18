@@ -13,17 +13,24 @@
 <% com.pexperiment.model.Login login = (com.pexperiment.model.Login) session.getAttribute("login"); %>
 <h1>Hello <%= login.getPlayerName() %> </h1>
 <br/>
+
 <form enctype="multipart/form-data" method="post" action="uploadServlet" >
 <hr/>
 <input type="file" name="mptest" value=""/>
 <hr/>
 <input type="submit" value="upload"/>
 </form>
+
+<br></br>
+<form method="post" action="ClearDatabaseServlet">
+<input type="submit" value="clear database"/>
+</form>
 <br></br>
 <br></br>
 <form method="post" action="LogoutServlet">
 <input type="submit" value="logout"/>
 </form>
+
 </div>
 </body>
 </html>
