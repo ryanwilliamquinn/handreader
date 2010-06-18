@@ -65,7 +65,7 @@ public class PlayerDAO {
 		dbConn = DbConnectionManager.newConnection();
 
 		try{
-		String sql = "UPDATE player SET totalHands = '" + player.getTotalHands() + "', vpiphands = '" + player.getVpipHands()+ "' WHERE playername = '" + player.getPlayerName() + "'";
+		String sql = "UPDATE player SET totalHands = '" + player.getTotalHands() + "', vpiphands = '" + player.getVpipHands() + "', pfrhands = '" + player.getPfrHands() + "' WHERE playername = '" + player.getPlayerName() + "'";
 		
 		dbConn.execSql(sql);
 		
