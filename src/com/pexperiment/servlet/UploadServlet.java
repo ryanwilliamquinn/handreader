@@ -86,7 +86,7 @@ public class UploadServlet extends HttpServlet {
 		Iterator<FileItem> iter = items.iterator();
 		int size=items.size();
 		for(int i=0;i<size;i++){
-			while (items.get(i).getSize() > 0 && iter.hasNext()) { // even though we have a single input field for files, I think this is getting multiple past files
+			if (items.get(i).getSize() > 0 && iter.hasNext()) { // even though we have a single input field for files, I think this is getting multiple past files
 			    FileItem item = (FileItem) iter.next();		    
 			    processUploadedFile(item, player);
 			}

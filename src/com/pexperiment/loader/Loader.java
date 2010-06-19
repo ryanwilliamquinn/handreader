@@ -21,7 +21,7 @@ public class Loader {
 	private static Logger log = Logger.getLogger(Loader.class);
 	private static Loader instance = null;
 	private Player player;
-	private StringBuffer contents = new StringBuffer();
+	private StringBuffer contents;
     private BufferedReader reader = null;
 
 	public static Loader getInstance(){ // what calls this function?
@@ -36,6 +36,7 @@ public class Loader {
 	public void loadHands(Player player, String fileName){
 		this.player = player;
 		File file = new File(fileName);
+		contents = new StringBuffer();
         try {
             reader = new BufferedReader(new FileReader(file));
             String text = null;
@@ -57,6 +58,7 @@ public class Loader {
             }
         }
         incrementStats();
+        contents = null;
 	}
 	
     private void incrementStats() {
