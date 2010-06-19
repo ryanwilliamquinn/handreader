@@ -11,8 +11,12 @@
 	<div class="contentContainer">
 		<h1>The Hand History Reader</h1>
 		<div class="forms">
+					
 			<form method="post" action="LoginServlet" id="loginForm" name="loginForm">
 				<h2>Login</h2>
+				<% String errorMsg = (String) request.getAttribute("errorMsg"); %>	
+				<% if (errorMsg == null) errorMsg = ""; %>					 
+				<label class="showerror"> <%= errorMsg.toString() %> </label> 
 				<label for="playerName" class="inputLabel">Username:</label> <input class="textInput" type="text" id="playerName" name="playerName" />
 				<label for="playerName" class="inputLabel">Password:</label> <input class="textInput" type="text" id="password" name="password" />
 				<input type="submit" value="submit"/>

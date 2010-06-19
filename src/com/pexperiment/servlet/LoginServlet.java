@@ -41,12 +41,16 @@ public class LoginServlet extends HttpServlet {
 		try { login = ld.select(playerName); } 
 		catch (SQLException e) { /* invalid playerName */ e.printStackTrace(); }
 		
-		if (login == null){ /* invalid playerName */ nextJSP = "/index.jsp"; }
+		if (login == null){ /* invalid playerName */ 
+			request.setAttribute("errorMsg", "invalid login name");
+			nextJSP = "/index.jsp"; }
 		else if (login.getPassword().contentEquals(password)) { 
 			nextJSP = "/uploadHistory.jsp"; 
 			session.setAttribute("login", login);
 		} 
-		else { /* invalid password */ nextJSP = "/index.jsp"; } 		 
+		else { /* invalid password */ 
+			request.setAttribute("errorMsg", "invalid password");
+			nextJSP = "/index.jsp"; } 		 
 
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
 		try { dispatcher.forward(request,response); } 

@@ -70,13 +70,13 @@
   </servlet-mapping> 
   <servlet>
     <description></description>
-    <display-name>ClearDatabaseServlet</display-name>
-    <servlet-name>ClearDatabaseServlet</servlet-name>
-    <servlet-class>com.pexperiment.servlet.ClearDatabaseServlet</servlet-class>
+    <display-name>DeleteAllPlayersServlet</display-name>
+    <servlet-name>DeleteAllPlayersServlet</servlet-name>
+    <servlet-class>com.pexperiment.servlet.DeleteAllPlayersServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ClearDatabaseServlet</servlet-name>
-    <url-pattern>/ClearDatabaseServlet</url-pattern>
+    <servlet-name>DeleteAllPlayersServlet</servlet-name>
+    <url-pattern>/DeleteAllPlayersServlet</url-pattern>
   </servlet-mapping>  
     <servlet>
     <description></description>

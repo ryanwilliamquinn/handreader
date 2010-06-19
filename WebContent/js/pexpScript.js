@@ -21,3 +21,4 @@
 			document.forms["uploadForm"].submit();
 		}
 	}
+	

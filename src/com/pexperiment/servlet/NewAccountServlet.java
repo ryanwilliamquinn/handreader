@@ -48,8 +48,11 @@ public class NewAccountServlet extends HttpServlet {
 				ld.insert(login); 
 				session.setAttribute("login", login); 
 				nextJSP = "/uploadHistory.jsp"; } 
-			catch (SQLException e) { /* invalid new account */  e.printStackTrace();  }		
+			catch (SQLException e) { /* invalid new account */  
+				request.setAttribute("errorMsg", "invalid login name or password");
+				e.printStackTrace();  }		
 		}
+		else { request.setAttribute("errorMsg", "empty login name or password"); } 
 		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
 		try { dispatcher.forward(request,response); } 

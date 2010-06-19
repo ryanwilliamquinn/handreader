@@ -18,7 +18,7 @@ import com.pexperiment.model.Login;
 
 public class DeletePlayerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static Logger log = Logger.getLogger(ClearDatabaseServlet.class);
+	private static Logger log = Logger.getLogger(DeleteAllPlayersServlet.class);
        
     public DeletePlayerServlet() {
         super();

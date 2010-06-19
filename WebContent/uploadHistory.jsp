@@ -28,8 +28,8 @@
 </form>
 
 <br></br>
-<form method="post" action="ClearDatabaseServlet">
-<input type="submit" value="clear database"/>
+<form method="post" action="DeleteAllPlayersServlet">
+<input type="submit" value="delete all players"/>
 </form>
 
 <br></br>

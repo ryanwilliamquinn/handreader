@@ -16,11 +16,11 @@ import com.pexperiment.db.dao.PlayerDAO;
 import com.pexperiment.db.dao.PlayerGameIdDAO;
 import com.pexperiment.model.Login;
 
-public class ClearDatabaseServlet extends HttpServlet {
+public class DeleteAllPlayersServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static Logger log = Logger.getLogger(ClearDatabaseServlet.class);
+	private static Logger log = Logger.getLogger(DeleteAllPlayersServlet.class);
        
-    public ClearDatabaseServlet() {
+    public DeleteAllPlayersServlet() {
         super();
     }
 
