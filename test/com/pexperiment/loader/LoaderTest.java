@@ -53,8 +53,8 @@ public class LoaderTest extends TestCase {
 			PlayerDAO pdao = new PlayerDAO();
 			PlayerGameIdDAO pgdao = new PlayerGameIdDAO();
 			LoginDAO ldao = new LoginDAO();
-			pgdao.deleteAll(player);
-			pdao.delete(player);
+			pgdao.delete(player.getPlayerName());
+			pdao.delete(player.getPlayerName());
 			ldao.delete(login);
 			
 		} catch (SQLException e) {
