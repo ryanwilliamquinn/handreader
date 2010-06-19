@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import com.pexperiment.db.dao.LoginDAO;
 import com.pexperiment.db.dao.PlayerDAO;
 import com.pexperiment.db.dao.PlayerGameIdDAO;
+import com.pexperiment.loader.Loader;
 import com.pexperiment.model.Login;
 import com.pexperiment.model.Player;
 
